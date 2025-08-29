@@ -119,7 +119,7 @@ python binance_market_maker_bot_3.py
 
 | Parameter | Description | Default | Range |
 |-----------|-------------|---------|-------|
-| `total_capital` | Total trading capital in USD | `329.0` | > 0 |
+| `total_capital` | Total trading capital in USD | `1000.0` | > 0 |
 | `max_inventory_ratio` | Max position as % of capital | `0.2` | 0.05-0.5 |
 | `max_drawdown_ratio` | Max loss as % of capital | `0.03` | 0.01-0.1 |
 | `base_spread_ticks` | Minimum spread in ticks | `3.0` | 1-10 |
