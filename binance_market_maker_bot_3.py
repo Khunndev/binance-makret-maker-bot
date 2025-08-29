@@ -45,7 +45,7 @@ class ConfigFile:
                 "quote_asset": "USDT"
             },
             "trading": {
-                "total_capital": 329.0,
+                "total_capital": 1000.0,
                 "max_inventory_ratio": 0.2,
                 "max_drawdown_ratio": 0.03,
                 "base_spread_ticks": 3.0,
@@ -1865,4 +1865,5 @@ if __name__ == "__main__":
     
     # Run the bot
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
     asyncio.run(main())
