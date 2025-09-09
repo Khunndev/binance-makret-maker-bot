@@ -145,8 +145,8 @@ class Config:
     VOLATILITY_WINDOW: float = 60.0
     
     # Fee tracking (will be populated from API)
-    MAKER_FEE_RATE: float = 0.001
-    TAKER_FEE_RATE: float = 0.001
+    MAKER_FEE_RATE: float = 0.075
+    TAKER_FEE_RATE: float = 0.075
     FEE_CURRENCY: str = ""
 
     @classmethod

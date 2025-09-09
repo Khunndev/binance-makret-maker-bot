@@ -1,0 +1,77 @@
+// คอนฟิกสำหรับบอท Market Maker (Futures)
+// หมายเหตุ: ไฟล์นี้รองรับคอมเมนต์แบบ // และ /* ... */ แล้ว
+{
+    "exchange":  {
+        // ใส่คีย์ Binance ของคุณ (ควรใช้ Testnet ก่อน)
+        "api_key":  "03146935dd5cbe806149ac7a51445ff3eda1f245ef67fdad1f76cbd2f13f797b",
+        "api_secret":  "d3bb43afca8539c78cb757e4c74e4f32a6328044face492723e1db948dcb419b",
+        // true = ทดสอบบน Testnet, false = บัญชีจริง
+        "testnet":  true,
+        // สัญลักษณ์ Futures (USDⓈ-M) เช่น BTC/USDT
+        "symbol":  "BTC/USDT",
+        // สกุลฐาน/สกุลอ้างอิง
+        "base_asset":  "BTC",
+        "quote_asset":  "USDT"
+    },
+    "trading":  {
+        // ทุนอ้างอิง (ใช้กำหนดขนาดคำสั่ง/เพดานความเสี่ยง)
+        "total_capital":  1000,
+        // เพดานมูลค่าสถานะรวมต่อทุน (เช่น 0.2 = 20%)
+        "max_inventory_ratio":  0.2,
+        // เพดาน Drawdown ต่อทุน เมื่อเกินจะหยุดเทรด
+        "max_drawdown_ratio":  0.03,
+        // สเปรดฐาน (หน่วยติ๊ก)
+        "base_spread_ticks":  3.0,
+        // ตัวคูณสเปรดตามความผันผวน
+        "volatility_multiplier":  4.0,
+        // แรงปรับราคาให้ตามพอร์ตคงค้าง (ถ้าลองเยอะจะดัน Ask ออก ฯลฯ)
+        "inventory_skew_strength":  3.0,
+        // อายุคำสั่งขั้นต่ำก่อนจะย้ายหรือแทนที่
+        "min_order_lifetime":  20.0,
+        // ความถี่ขั้นต่ำในการเปลี่ยนคำสั่ง (วินาที)
+        "max_order_replace_freq":  1800,
+        // ยอดขั้นต่ำฝั่งสินทรัพย์/ฝั่ง USDT
+        "min_base_balance":  0.001,
+        "min_quote_balance":  5.0,
+        // อนุญาตชอร์ต (Futures ชอร์ตได้ แต่ยังมีเช็คความเสี่ยง)
+        "allow_short_selling":  false,
+        // ส่งคำสั่งแบบ Post-Only เพื่อลด Taker fee
+        "post_only":  true,
+        // จำนวนติ๊กที่ถอยราคาเพื่อให้แน่ใจว่าเป็น Maker เมื่อเปิด post_only
+        "post_only_backoff_ticks": 1,
+        // ให้ราคาเกาะหนังสือคำสั่ง (best bid/ask) พร้อมออฟเซ็ต
+        "peg_to_book": true,
+        // จำนวนติ๊กที่เลื่อนจาก bid/ask ปัจจุบัน (1–2 ติ๊กนิยม)
+        "peg_offset_ticks": 1,
+        // สเปรดขั้นต่ำที่ต้องรักษา (หน่วยติ๊ก)
+        "min_spread_ticks": 2,
+        // เลเวอเรจ Futures (เริ่มต่ำบนบัญชีจริง)
+        "leverage":  50,
+        // โหมดมาร์จิ้น: cross หรือ isolated
+        "margin_mode":  "cross",
+        // โหมด Hedge (ถือ Long/Short พร้อมกัน)
+        "hedge_mode":  false,
+        // ปริมาณขั้นต่ำที่อยากบังคับใช้ (0.0 = ใช้ขั้นต่ำจาก Exchange)
+        "min_qty" : 0.0,
+        // ยกเพดานขั้นต่ำ (หน่วย BASE เช่น 0.001 BTC) ถ้า 0.0 = ปิด
+        "min_qty_override" : 0.0,
+        // เปิดใช้งาน Take Profit / Stop Loss อัตโนมัติ
+        "enable_tp_sl": false,
+        // ระยะ TP/SL เป็นสัดส่วนจากราคาเฉลี่ยสถานะ (0.002 = 0.2%)
+        "tp_pct": 0.002,
+        "sl_pct": 0.004,
+        // ส่งคำสั่งแบบ Reduce-Only เพื่อลดสถานะเท่านั้น
+        "tp_reduce_only": true,
+        "sl_reduce_only": true
+    },
+    "risk":  {
+        // พารามิเตอร์แบบจำลอง Avellaneda (ยิ่งสูงยิ่งถอยราคา/ลดความเสี่ยง)
+        "risk_aversion":  0.5,
+        // อิมแพคต่อราคาในแบบจำลอง
+        "market_impact":  0.01,
+        // ขอบเขตเวลาในแบบจำลอง
+        "time_horizon":  1.0,
+        // ใช้ Avellaneda (มี fallback เป็น volatility)
+        "use_avellaneda":  true
+    }
+}

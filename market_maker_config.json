@@ -1,14 +1,14 @@
 {
     "exchange": {
-        "api_key": "YOUR-API-KEY",
-        "api_secret": "YOUR-SECRET",
+        "api_key": "6QZJt3ENSbSXbZ9i2kD1MnZaDYTYoQt9bg8gO3qIUjdWkLfVLZUyCaCyeCbxE6s5",
+        "api_secret": "gBzcxfVHTvVM5rql0DcJbOUsTMPX88CDLfOlTfRKTAT3GWdhmkxDUw73HsH9XYjJ",
         "testnet": false,
         "symbol": "SOL/USDT",
         "base_asset": "SOL",
         "quote_asset": "USDT"
     },
     "trading": {
-        "total_capital": 338.84,
+        "total_capital": 50,
         "max_inventory_ratio": 0.2,
         "max_drawdown_ratio": 0.03,
         "base_spread_ticks": 3.0,
